@@ -37,11 +37,11 @@ THEN I can register a new account or login with my existing account\
 WHEN I login\
 THEN I have the ability to add new links to articles, revise or delete previous links, comment or vote on links\
 WHEN I comment or vote on a link\
-THEN I see that an additional comment or vote has been added to the news links\
+THEN I see that an additional comment or vote point has been added to the news links\
 WHEN I am finished using the app\
 THEN I click on logout and am logged out of the app\
 WHEN I wish to add/revise/delete a link, comment or vote\
-THEN I must log back into the app to make any changes\
+THEN I must log back into the app to make any changes
 ##
 
 <a id='installation'></a>
@@ -52,7 +52,7 @@ There is no need to install anything, please use the link to the deployed app.\
 
 <a id='usage'></a>
 ## Usage
-This app is meant to help the user quickly and easily add/update/remove links to their favorite news articles.\
+This app is meant to help the user quickly and easily add/update/remove links to their favorite news articles.
 ##
 
 <a id='license'></a>

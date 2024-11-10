@@ -8,6 +8,9 @@ bp = Blueprint('api', __name__, url_prefix='/api')
 
 @bp.route('/users', methods=['POST'])
 def signup():
+  """
+  Handles user signup by creating a new user in the database.
+  """
   data = request.get_json()
   db = get_db()
 
@@ -36,12 +39,18 @@ def signup():
 
 @bp.route('/users/logout', methods=['POST'])
 def logout():
+  """
+  Handles user logout by clearing the session.
+  """
   # remove session variables
   session.clear()
   return '', 204
 
 @bp.route('/users/login', methods=['POST'])
 def login():
+  """
+  Authenticates a user and starts a session.
+  """
   data = request.get_json()
   db = get_db()
 
@@ -65,6 +74,9 @@ def login():
 @bp.route('/comments', methods=['POST'])
 @login_required
 def comment():
+  """
+  Creates a new comment associated with a post.
+  """
   data = request.get_json()
   db = get_db()
 
@@ -89,11 +101,13 @@ def comment():
 @bp.route('/posts/upvote', methods=['PUT'])
 @login_required
 def upvote():
+  """
+  Records an upvote for a specific post.
+  """
   data = request.get_json()
   db = get_db()
 
   try:
-    # create a new vote with incoming id and session id
     newVote = Vote(
       post_id = data['post_id'],
       user_id = session.get('user_id')
@@ -112,6 +126,9 @@ def upvote():
 @bp.route('/posts', methods=['POST'])
 @login_required
 def create():
+  """
+  Creates a new post in the database.
+  """
   data = request.get_json()
   db = get_db()
 
@@ -136,6 +153,9 @@ def create():
 @bp.route('/posts/<id>', methods=['PUT'])
 @login_required
 def update(id):
+  """
+  Updates the title of an existing post.
+  """
   data = request.get_json()
   db = get_db()
 
@@ -155,6 +175,9 @@ def update(id):
 @bp.route('/posts/<id>', methods=['DELETE'])
 @login_required
 def delete(id):
+  """
+  Deletes a post from the database.
+  """
   db = get_db()
 
   try:
